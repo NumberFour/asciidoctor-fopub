@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Syntax highlighting definition for AsciiDoc files
+
+-->
+<highlighters>
+  <highlighter type="regex">
+    <pattern>(\|===|\|)</pattern>
+    <style>adoc-table</style>
+  </highlighter>
+  <highlighter type="regex">
+    <pattern>\+\+\+\+</pattern>
+    <style>comment</style>
+  </highlighter>
+  <highlighter type="regex">
+    <pattern>((task:|cite:\[|cwiki:)|((task:|cite:\[|cwiki:)\[\]|\]|\[\]))|(?!cwiki:\[)\[(?=title)</pattern>
+    <style>macro</style>
+  </highlighter> 
+  <highlighter type="regex">
+    <pattern>(?!cwiki:)[a-zA-Z]+(?=\[)</pattern>
+    <style>cwiki-target</style>
+  </highlighter> 
+  <highlighter type="regex">
+    <pattern>(?!cite:\[)([a-zA-Z](\([0-9]\S?\))?)+(?=\])</pattern>
+    <style>reference</style>
+  </highlighter> 
+  <highlighter type="regex">
+    <pattern>(?!task:)[0-9a-zA-Z|-]+(?=\[\])</pattern>
+    <style>reference</style>
+  </highlighter>
+  <highlighter type="regex">
+    <pattern>(?!\"title=)\w+(?=\")</pattern>
+    <style>title</style>
+  </highlighter>
+  <highlighter type="regex">
+    <pattern>(\$).+?(\$)</pattern>
+    <style>comment</style>
+  </highlighter>
+  <highlighter type="regex">
+    <pattern>(?!\[)\w+?=</pattern>
+    <style>adoc-attr</style>
+  </highlighter>
+  <highlighter type="multiline-comment">
+    <start>////</start>
+    <end>////</end>
+  </highlighter>
+  <highlighter type="oneline-comment">
+    <start>//</start>
+    <solitary/>
+  </highlighter>
+  <highlighter type="regex">
+    <pattern>^(={1,6} .+)$</pattern>
+    <style>heading</style>
+    <flags>MULTILINE</flags>
+  </highlighter>
+  <highlighter type="regex">
+    <pattern>^(\.[^\.\s].+)$</pattern>
+    <style>title</style>
+    <flags>MULTILINE</flags>
+  </highlighter>
+  <highlighter type="regex">
+    <pattern>^(:!?\w.*?:)</pattern>
+    <style>attribute</style>
+    <flags>MULTILINE</flags>
+  </highlighter>
+  <highlighter type="regex">
+    <pattern>^(-|\*{1,5}|\d*\.{1,5})(?= .+$)</pattern>
+    <style>bullet</style>
+    <flags>MULTILINE</flags>
+  </highlighter>
+  <highlighter type="regex">
+    <pattern>^(\[.+\])$</pattern>
+    <style>attribute</style>
+    <flags>MULTILINE</flags>
+  </highlighter>
+</highlighters>
