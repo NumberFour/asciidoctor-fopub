@@ -108,7 +108,7 @@
 
 
   <xsl:param name="linenumbering.extension">1</xsl:param>
-  <xsl:param name="linenumbering.width">2</xsl:param>
+  <xsl:param name="linenumbering.width">12px</xsl:param>
   <xsl:param name="linenumbering.everyNth">1</xsl:param>
 
   <xsl:param name="admon.graphics">1</xsl:param>
