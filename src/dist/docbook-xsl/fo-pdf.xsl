@@ -254,27 +254,29 @@
   <xsl:param name="paper.type">A4</xsl:param> <!-- alternative size is USletter -->
   <xsl:param name="headers.on.blank.pages">1</xsl:param>
   <xsl:param name="footers.on.blank.pages">1</xsl:param>
+
   <xsl:param name="page.margin.top">10mm</xsl:param> <!-- top margin of page -->
   <xsl:param name="page.margin.bottom">10mm</xsl:param> <!-- bottom margin of page -->
-  <xsl:param name="page.margin.inner">18mm</xsl:param> <!-- side margin of page (left, towards binding) -->
-  <xsl:param name="page.margin.outer">8mm</xsl:param> <!-- side margin of page (right, away from binding) -->
-  <xsl:param name="body.margin.top">15mm</xsl:param> <!-- top margin of content -->
+  <xsl:param name="body.margin.top">10mm</xsl:param> <!-- top margin of content -->
   <xsl:param name="body.margin.bottom">10mm</xsl:param> <!-- bottom margin of content -->
-  <xsl:param name="body.margin.inner">4mm</xsl:param> <!-- side margin of content (left, towards binding) -->
-  <xsl:param name="body.margin.outer">8mm</xsl:param> <!-- side margin of content (right, away from binding) -->
-  <xsl:param name="body.start.indent">0px</xsl:param> <!-- text indentation -->
-  <xsl:param name="body.end.indent">30px</xsl:param> <!-- text recess from right -->
   <xsl:param name="region.before.extent">10mm</xsl:param> <!-- height of page header -->
-  <xsl:param name="region.after.extent">8mm</xsl:param> <!-- height of page footer -->
-  <xsl:param name="header.column.widths">1 5 1</xsl:param>
-  <xsl:param name="double.sided">1</xsl:param>
+  <xsl:param name="region.after.extent">10mm</xsl:param> <!-- height of page footer -->
 
+  <xsl:param name="page.margin.inner">10mm</xsl:param> <!-- side margin of page (left, towards binding) -->
+  <xsl:param name="page.margin.outer">7mm</xsl:param> <!-- side margin of page (right, away from binding) -->
+  <xsl:param name="body.margin.inner">25mm</xsl:param> <!-- side margin of content (left, towards binding) -->
+  <xsl:param name="body.margin.outer">7mm</xsl:param> <!-- side margin of content (right, away from binding) -->
+  <xsl:param name="body.start.indent">0px</xsl:param> <!-- text indentation -->
+  <xsl:param name="body.end.indent">0px</xsl:param> <!-- text recess from right -->
+
+  <xsl:param name="header.column.widths">1 3 1</xsl:param>
+  <xsl:param name="double.sided">1</xsl:param>
 
   <!--
     Table of Contents
   -->
 
-  <xsl:param name="bridgehead.in.toc">0</xsl:param>
+  <xsl:param name="bridgehead.in.toc">1</xsl:param>
   <xsl:param name="toc.section.depth">3</xsl:param>
 
   <xsl:template name="toc.line">
@@ -357,7 +359,7 @@
     <xsl:attribute name="border-left-width">.75pt</xsl:attribute>
     <xsl:attribute name="border-left-style">none</xsl:attribute>
     <xsl:attribute name="border-left-color"><xsl:value-of select="$border.color"/></xsl:attribute>
-    <xsl:attribute name="margin-left">0</xsl:attribute>
+    <xsl:attribute name="margin-left">10px</xsl:attribute>
   </xsl:attribute-set>
 
   <xsl:attribute-set name="graphical.admonition.properties">
@@ -385,8 +387,8 @@
     SIDEBAR
   -->
 
-<xsl:param name="margin.note.float.type">right</xsl:param> 
-<xsl:param name="margin.note.width">30px</xsl:param> 
+<xsl:param name="margin.note.float.type">start</xsl:param> 
+<xsl:param name="margin.note.width">35px</xsl:param>
 
 <xsl:template match="db:sidebar">
   <xsl:call-template name="margin.note">
@@ -395,13 +397,10 @@
 
 <xsl:attribute-set name="margin.note.properties">
   <xsl:attribute name="fox:border-radius">4pt</xsl:attribute>
-  <xsl:attribute name="font-size">5pt</xsl:attribute>
+  <xsl:attribute name="font-size">4pt</xsl:attribute>
   <xsl:attribute name="border">1pt solid grey</xsl:attribute>
   <xsl:attribute name="padding-left">5pt</xsl:attribute>
-  <xsl:attribute name="padding-right">30pt</xsl:attribute>
-  <xsl:attribute name="keep-together.within-page">auto</xsl:attribute>
   <xsl:attribute name="background-color">#F6FBFC</xsl:attribute>
-  <xsl:attribute name="margin-left">420pt</xsl:attribute>
 </xsl:attribute-set>
 
 
