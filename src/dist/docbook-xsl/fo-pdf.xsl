@@ -61,7 +61,7 @@
   </xsl:template>
 
   <xsl:template name="pickfont-dingbat">
-    <xsl:call-template name="pickfont-sans"/>
+    <xsl:call-template name="pickfont-symbol"/>
   </xsl:template>
 
   <xsl:template name="pickfont-symbol">
@@ -113,7 +113,7 @@
   <xsl:param name="hyphenate">true</xsl:param>
   <xsl:param name="line-height">1.3em</xsl:param>
   <xsl:param name="alignment">justify</xsl:param>
-  <xsl:param name="body.font.master">10</xsl:param>
+  <xsl:param name="body.font.master">9</xsl:param>
   <xsl:param name="body.font.size">
     <xsl:value-of select="$body.font.master"/><xsl:text>pt</xsl:text>
   </xsl:param>
@@ -153,6 +153,7 @@
   </xsl:attribute-set>
 
   <xsl:attribute-set name="verbatim.properties">
+    <xsl:attribute name="font-size">3pt</xsl:attribute>
     <xsl:attribute name="color"><xsl:value-of select="$text.color"/></xsl:attribute>
     <xsl:attribute name="font-weight">normal</xsl:attribute>
     <xsl:attribute name="fox:border-radius">4pt</xsl:attribute>
@@ -180,7 +181,7 @@
   <xsl:attribute-set name="monospace.verbatim.properties"
                      use-attribute-sets="monospace.properties verbatim.properties">
     <xsl:attribute name="keep-together.within-column">auto</xsl:attribute>
-    <xsl:attribute name="font-size">5pt</xsl:attribute>
+    <xsl:attribute name="font-size">4pt</xsl:attribute>
     <xsl:attribute name="text-align">start</xsl:attribute>
     <xsl:attribute name="wrap-option">wrap</xsl:attribute>
     <xsl:attribute name="hyphenation-character">-</xsl:attribute>
@@ -264,7 +265,7 @@
   <xsl:param name="body.margin.top">10mm</xsl:param> <!-- top margin of content -->
   <xsl:param name="body.margin.bottom">10mm</xsl:param> <!-- bottom margin of content -->
   <xsl:param name="region.before.extent">10mm</xsl:param> <!-- height of page header -->
-  <xsl:param name="region.after.extent">11mm</xsl:param> <!-- height of page footer -->
+  <xsl:param name="region.after.extent">9mm</xsl:param> <!-- height of page footer -->
 
   <xsl:param name="page.margin.inner">25mm</xsl:param> <!-- side margin of page (left, towards binding) -->
   <xsl:param name="page.margin.outer">7mm</xsl:param> <!-- side margin of page (right, away from binding) -->
@@ -339,7 +340,7 @@
     <xsl:attribute name="space-after.optimum">0.5em</xsl:attribute>
     <xsl:attribute name="space-after.maximum">1.9em</xsl:attribute>
     <!-- Make examples, tables etc. break across pages -->
-    <xsl:attribute name="keep-together.within-page">auto</xsl:attribute>
+    <xsl:attribute name="keep-together.within-column">auto</xsl:attribute>
   </xsl:attribute-set>
 
   <xsl:param name="formal.title.placement">
@@ -367,7 +368,8 @@
     <xsl:attribute name="margin-right">-20pt</xsl:attribute>
   </xsl:attribute-set>
 
-  <xsl:attribute-set name="example.properties" use-attribute-sets="formal.object.properties">
+  <xsl:attribute-set name="example.properties">
+    <xsl:attribute name="keep-together.within-page">auto</xsl:attribute>
     <xsl:attribute name="padding-bottom">0</xsl:attribute>
     <xsl:attribute name="margin-left">0</xsl:attribute>
     <xsl:attribute name="margin-right">0</xsl:attribute>
@@ -385,16 +387,16 @@
   -->
 
 
-<xsl:param name="margin.note.width"><xsl:value-of select="$body.font.master * 2"/><xsl:text>pt</xsl:text></xsl:param>
+<xsl:param name="margin.note.width"><xsl:value-of select="$body.font.master * 3"/><xsl:text>pt</xsl:text></xsl:param>
 <xsl:param name="margin.note.float.type">none</xsl:param> 
 
 <xsl:template match="db:sidebar">
-  <xsl:call-template name="margin.note"></xsl:call-template>
-  <xsl:attribute name="width">40px</xsl:attribute>
+  <xsl:call-template name="margin.note"> </xsl:call-template>  
 </xsl:template>
 
 <xsl:attribute-set name="margin.note.properties">
-  <xsl:attribute name="font-size"><xsl:value-of select="$body.font.master * .6"/><xsl:text>pt</xsl:text></xsl:attribute>
+  <xsl:attribute name="keep-together.within-column">always</xsl:attribute>
+  <xsl:attribute name="font-size">.6em</xsl:attribute>
   <xsl:attribute name="border">1pt solid grey</xsl:attribute>
   <xsl:attribute name="fox:border-radius">4pt</xsl:attribute>
   <xsl:attribute name="padding-left">2pt</xsl:attribute>
@@ -402,6 +404,7 @@
   <xsl:attribute name="padding-top">0pt</xsl:attribute>
   <xsl:attribute name="padding-bottom">0pt</xsl:attribute>
   <xsl:attribute name="margin-top">0pt</xsl:attribute>
+  <xsl:attribute name="margin-left">405pt</xsl:attribute>
   <xsl:attribute name="margin-bottom">0pt</xsl:attribute>
   <xsl:attribute name="background-color">#F6FBFC</xsl:attribute>
 </xsl:attribute-set>
@@ -455,7 +458,7 @@
   <xsl:param name="graphicsize.extension">1</xsl:param>
   -->
   <xsl:param name="default.image.width">200px</xsl:param>
-  <xsl:param name="default.inline.image.height">1em</xsl:param>
+  <xsl:param name="default.inline.image.height">.8em</xsl:param>
 
   <xsl:template name="process.image">
     <!-- if image is wider than the page, shrink it down to default.image.width -->
@@ -649,7 +652,7 @@
   <xsl:template match="mml:math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
     <fo:instream-foreign-object>
       <xsl:attribute name="font-size">
-      <xsl:value-of select="$body.font.master * .8"/><xsl:text>pt</xsl:text>
+      <xsl:value-of select="$body.font.master * .9"/><xsl:text>pt</xsl:text>
     </xsl:attribute>
       <xsl:attribute name="font-family"><xsl:value-of select="$math.font.family"/></xsl:attribute>
       <xsl:copy>
@@ -811,7 +814,7 @@
   -->
 
   <xsl:param name="qandadiv.autolabel">0</xsl:param>
-  <xsl:param name="variablelist.as.blocks">0</xsl:param>
+  <xsl:param name="variablelist.as.blocks">1</xsl:param>
 
   <xsl:attribute-set name="list.block.properties">
     <xsl:attribute name="margin-left">0.2em</xsl:attribute>
@@ -827,9 +830,9 @@
   </xsl:attribute-set>
 
   <xsl:attribute-set name="list.item.spacing">
-    <xsl:attribute name="space-before.optimum">0.3em</xsl:attribute>
-    <xsl:attribute name="space-before.minimum">0.1em</xsl:attribute>
-    <xsl:attribute name="space-before.maximum">0.5em</xsl:attribute>
+    <xsl:attribute name="space-before.optimum">0.5em</xsl:attribute>
+    <xsl:attribute name="space-before.minimum">0.3em</xsl:attribute>
+    <xsl:attribute name="space-before.maximum">0.7em</xsl:attribute>
   </xsl:attribute-set>
 
   <xsl:attribute-set name="variablelist.term.properties">
@@ -989,14 +992,14 @@
   <xsl:param name="footnote.number.symbols"/>
 
   <xsl:param name="footnote.font.size">
-    <xsl:value-of select="$body.font.master * 0.8"/><xsl:text>pt</xsl:text>
+    <xsl:value-of select="$body.font.master * 0.7"/><xsl:text>pt</xsl:text>
   </xsl:param>
 
   <xsl:attribute-set name="footnote.mark.properties">
     <!-- override font-family for mark since we don't need full font set -->
     <xsl:attribute name="font-family"><xsl:value-of select="$body.font.family"/></xsl:attribute>
     <xsl:attribute name="font-size">
-      <xsl:value-of select="$body.font.master * 0.8"/><xsl:text>pt</xsl:text>
+      <xsl:value-of select="$body.font.master * 0.7"/><xsl:text>pt</xsl:text>
     </xsl:attribute>
     <xsl:attribute name="color"><xsl:value-of select="$link.color"/></xsl:attribute>
     <xsl:attribute name="font-weight">bold</xsl:attribute>
@@ -1010,10 +1013,11 @@
   </xsl:attribute-set>
 
   <xsl:attribute-set name="footnote.sep.leader.properties">
+    <xsl:attribute name="padding-top">5px</xsl:attribute>
     <xsl:attribute name="color"><xsl:value-of select="$border.color"/></xsl:attribute>
     <xsl:attribute name="leader-pattern">rule</xsl:attribute>
     <xsl:attribute name="leader-length">2in</xsl:attribute>
-    <xsl:attribute name="rule-thickness">0.5pt</xsl:attribute>
+    <xsl:attribute name="rule-thickness">1pt</xsl:attribute>
   </xsl:attribute-set>
 
   <!-- Index does not use normal.para.spacing, so set text.color explicitly -->
