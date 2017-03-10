@@ -4,6 +4,7 @@
   See http://docbook.sourceforge.net/release/xsl/1.78.1/doc/fo for all parameters.
 -->
 <xsl:stylesheet version="1.0"
+  xmlns:fox="http://xmlgraphics.apache.org/fop/extensions"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:db="http://docbook.org/ns/docbook"
   xmlns:fo="http://www.w3.org/1999/XSL/Format"
@@ -102,7 +103,7 @@
   </xsl:param>
 
   <xsl:param name="title.font.family">
-    <xsl:call-template name="pickfont-serif"/>
+    <xsl:call-template name="pickfont-sans"/>
   </xsl:param>
 
   <!--
@@ -181,7 +182,7 @@
     <xsl:attribute name="font-size">6pt</xsl:attribute>
     <xsl:attribute name="text-align">start</xsl:attribute>
     <xsl:attribute name="wrap-option">wrap</xsl:attribute>
-    <xsl:attribute name="hyphenation-character">&#x25BA;</xsl:attribute>
+    <xsl:attribute name="hyphenation-character">-</xsl:attribute>
   </xsl:attribute-set>
 
   <!-- shade.verbatim.style is added to listings when shade.verbatim is enabled -->
@@ -372,6 +373,35 @@
     <xsl:attribute name="margin-right">0</xsl:attribute>
   </xsl:attribute-set>
 
+
+
+  <!--
+    SIDEBAR
+  -->
+
+
+<xsl:param name="margin.note.width">20px</xsl:param>
+<xsl:param name="margin.note.float.type">none</xsl:param> 
+
+<xsl:template match="db:sidebar">
+  <xsl:call-template name="margin.note"> </xsl:call-template>  
+</xsl:template>
+
+<xsl:attribute-set name="margin.note.properties">
+  <xsl:attribute name="keep-together.within-column">always</xsl:attribute>
+  <xsl:attribute name="font-size">.6em</xsl:attribute>
+  <xsl:attribute name="border">1pt solid grey</xsl:attribute>
+  <xsl:attribute name="fox:border-radius">4pt</xsl:attribute>
+  <xsl:attribute name="padding-left">2pt</xsl:attribute>
+  <xsl:attribute name="padding-right">2pt</xsl:attribute>
+  <xsl:attribute name="padding-top">0pt</xsl:attribute>
+  <xsl:attribute name="padding-bottom">0pt</xsl:attribute>
+  <xsl:attribute name="margin-top">0pt</xsl:attribute>
+  <xsl:attribute name="margin-left">430pt</xsl:attribute>
+  <xsl:attribute name="margin-bottom">0pt</xsl:attribute>
+  <xsl:attribute name="background-color">#F6FBFC</xsl:attribute>
+</xsl:attribute-set>
+<!--
   <xsl:attribute-set name="sidebar.properties" use-attribute-sets="formal.object.properties">
     <xsl:attribute name="border-style">none</xsl:attribute>
     <xsl:attribute name="border-width">0pt</xsl:attribute>
@@ -383,7 +413,7 @@
     <xsl:attribute name="padding-right">-12pt</xsl:attribute>
     <xsl:attribute name="font-size">7pt</xsl:attribute>
   </xsl:attribute-set>
- 
+ -->
   <xsl:attribute-set name="sidebar.title.properties">
     <xsl:attribute name="font-family"><xsl:value-of select="$title.fontset"/></xsl:attribute>
     <xsl:attribute name="font-weight"><xsl:value-of select="$header.font-weight"/></xsl:attribute>
