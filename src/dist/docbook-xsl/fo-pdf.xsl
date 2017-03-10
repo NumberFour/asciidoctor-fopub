@@ -4,6 +4,7 @@
   See http://docbook.sourceforge.net/release/xsl/1.78.1/doc/fo for all parameters.
 -->
 <xsl:stylesheet version="1.0"
+  xmlns:fox="http://xmlgraphics.apache.org/fop/extensions"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:db="http://docbook.org/ns/docbook"
   xmlns:fo="http://www.w3.org/1999/XSL/Format"
@@ -102,7 +103,7 @@
   </xsl:param>
 
   <xsl:param name="title.font.family">
-    <xsl:call-template name="pickfont-serif"/>
+    <xsl:call-template name="pickfont-sans"/>
   </xsl:param>
 
   <!--
