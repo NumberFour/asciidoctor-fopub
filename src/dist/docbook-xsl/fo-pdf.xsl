@@ -4,7 +4,6 @@
   See http://docbook.sourceforge.net/release/xsl/1.78.1/doc/fo for all parameters.
 -->
 <xsl:stylesheet version="1.0"
-  xmlns:fox="http://xmlgraphics.apache.org/fop/extensions"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:db="http://docbook.org/ns/docbook"
   xmlns:fo="http://www.w3.org/1999/XSL/Format"
@@ -103,7 +102,7 @@
   </xsl:param>
 
   <xsl:param name="title.font.family">
-    <xsl:call-template name="pickfont-sans"/>
+    <xsl:call-template name="pickfont-serif"/>
   </xsl:param>
 
   <!--
@@ -158,13 +157,13 @@
     <xsl:attribute name="font-weight">normal</xsl:attribute>
     <xsl:attribute name="fox:border-radius">4pt</xsl:attribute>
     <xsl:attribute name="margin-left">0pt</xsl:attribute>
-
     <xsl:attribute name="border">1pt solid grey</xsl:attribute>
     <xsl:attribute name="padding-left">5pt</xsl:attribute>
     <xsl:attribute name="border-width">1pt</xsl:attribute>
     <xsl:attribute name="border-color">black</xsl:attribute>
 
     <xsl:attribute name="space-before.minimum">0.2em</xsl:attribute>
+
     <xsl:attribute name="space-before.optimum">.2em</xsl:attribute>
     <xsl:attribute name="space-before.maximum">.4em</xsl:attribute>
     <xsl:attribute name="space-after.minimum">.3em</xsl:attribute>
@@ -184,7 +183,7 @@
     <xsl:attribute name="font-size">4pt</xsl:attribute>
     <xsl:attribute name="text-align">start</xsl:attribute>
     <xsl:attribute name="wrap-option">wrap</xsl:attribute>
-    <xsl:attribute name="hyphenation-character">-</xsl:attribute>
+    <xsl:attribute name="hyphenation-character">&#x25BA;</xsl:attribute>
   </xsl:attribute-set>
 
   <!-- shade.verbatim.style is added to listings when shade.verbatim is enabled -->
@@ -277,6 +276,7 @@
   <xsl:param name="header.column.widths">1 3 1</xsl:param>
   <xsl:param name="double.sided">1</xsl:param>
 
+
   <!--
     Table of Contents
   -->
@@ -354,7 +354,7 @@
   </xsl:attribute-set>
 
   <xsl:template match="*" mode="admon.graphic.width">
-    <xsl:text>26pt</xsl:text>
+    <xsl:text>36pt</xsl:text>
   </xsl:template>
 
   <xsl:attribute-set name="admonition.properties" use-attribute-sets="example.properties">
@@ -409,20 +409,18 @@
   <xsl:attribute name="background-color">#F6FBFC</xsl:attribute>
 </xsl:attribute-set>
 
-
-
-<!--
   <xsl:attribute-set name="sidebar.properties" use-attribute-sets="formal.object.properties">
-    <xsl:attribute name="border-width">1pt</xsl:attribute>
+    <xsl:attribute name="border-style">none</xsl:attribute>
+    <xsl:attribute name="border-width">0pt</xsl:attribute>
     <xsl:attribute name="border-color">#D9D9D9</xsl:attribute>
     <xsl:attribute name="background-color">#FFFFFF</xsl:attribute>
-    <xsl:attribute name="padding-start">5pt</xsl:attribute>
-    <xsl:attribute name="padding-end">316pt</xsl:attribute>
-    <xsl:attribute name="padding-top">14pt</xsl:attribute>
-    <xsl:attribute name="padding-right">212pt</xsl:attribute>
+    <xsl:attribute name="padding-start">456pt</xsl:attribute>
+    <xsl:attribute name="padding-end">16pt</xsl:attribute>
+    <xsl:attribute name="padding-top">-14pt</xsl:attribute>
+    <xsl:attribute name="padding-right">-12pt</xsl:attribute>
     <xsl:attribute name="font-size">7pt</xsl:attribute>
   </xsl:attribute-set>
--->
+ 
   <xsl:attribute-set name="sidebar.title.properties">
     <xsl:attribute name="font-family"><xsl:value-of select="$title.fontset"/></xsl:attribute>
     <xsl:attribute name="font-weight"><xsl:value-of select="$header.font-weight"/></xsl:attribute>
@@ -440,14 +438,21 @@
     <xsl:attribute name="padding-bottom">2pt</xsl:attribute>
   </xsl:attribute-set>
 
-  <xsl:param name="table.frame.border.thickness">1pt</xsl:param>
-  <xsl:param name="table.cell.border.thickness">0.5pt</xsl:param>
+  <xsl:param name="table.frame.border.thickness">0.3pt</xsl:param>
+  <xsl:param name="table.cell.border.thickness">0.15pt</xsl:param>
   <xsl:param name="table.cell.border.color">#5c5c4f</xsl:param>
   <xsl:param name="table.frame.border.color">#5c5c4f</xsl:param>
-  <xsl:param name="table.cell.border.right.color">blue</xsl:param>
+  <xsl:param name="table.cell.border.right.color">white</xsl:param>
   <xsl:param name="table.cell.border.left.color">white</xsl:param>
-  <xsl:param name="table.frame.border.right.color">blue</xsl:param>
+  <xsl:param name="table.frame.border.right.color">white</xsl:param>
   <xsl:param name="table.frame.border.left.color">white</xsl:param>
+
+  <xsl:attribute-set name="table.cell.padding">
+    <xsl:attribute name="padding-left">4pt</xsl:attribute>
+    <xsl:attribute name="padding-right">4pt</xsl:attribute>
+    <xsl:attribute name="padding-top">2pt</xsl:attribute>
+    <xsl:attribute name="padding-bottom">2pt</xsl:attribute>
+  </xsl:attribute-set>
 
   <!--
     Graphics
