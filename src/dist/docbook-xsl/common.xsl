@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:fox="http://xmlgraphics.apache.org/fop/extensions">
 
-  <!-- Asciidoctor theme -->
+  <!-- N4 theme -->
   <xsl:param name="text.color">#222222</xsl:param>
   <xsl:param name="link.color">#527AA3</xsl:param>
   <xsl:param name="border.color">#DDDDDD</xsl:param>
@@ -100,11 +101,15 @@
   <xsl:param name="navig.graphics.path">images/icons/</xsl:param>
   <xsl:param name="navig.showtitles">0</xsl:param>
 
-  <xsl:param name="shade.verbatim">0</xsl:param>
+  <xsl:param name="shade.verbatim">1</xsl:param>
 
   <xsl:attribute-set name="shade.verbatim.style">
-    <xsl:attribute name="border">0</xsl:attribute>
     <xsl:attribute name="background-color">#E0E0E0</xsl:attribute>
+    <xsl:attribute name="border">1pt solid black</xsl:attribute>
+    <xsl:attribute name="fox:border-radius">4pt</xsl:attribute>
+    <xsl:attribute name="margin">4pt</xsl:attribute>
+    <xsl:attribute name="keep-together.within-page">auto</xsl:attribute>
+    <xsl:attribute name="keep-together.within-column">always</xsl:attribute>
   </xsl:attribute-set>
 
   <!--
@@ -127,7 +132,7 @@
   <xsl:param name="admon.textlabel">0</xsl:param>
 
   <xsl:param name="chunk.first.sections" select="0"/>
-  <xsl:param name="chunk.quietly" select="0"/>
+  <xsl:param name="chunk.quietly" select="1"/>
   <xsl:param name="chunk.section.depth" select="1"/>
   <xsl:param name="chunk.toc" select="''"/>
   <xsl:param name="chunk.tocs.and.lots" select="0"/>
