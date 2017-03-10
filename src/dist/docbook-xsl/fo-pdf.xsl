@@ -388,7 +388,7 @@
   -->
 
 
-<xsl:param name="margin.note.width"><xsl:value-of select="$body.font.master * 3"/><xsl:text>pt</xsl:text></xsl:param>
+<xsl:param name="margin.note.width">20px</xsl:param>
 <xsl:param name="margin.note.float.type">none</xsl:param> 
 
 <xsl:template match="db:sidebar">
@@ -405,7 +405,7 @@
   <xsl:attribute name="padding-top">0pt</xsl:attribute>
   <xsl:attribute name="padding-bottom">0pt</xsl:attribute>
   <xsl:attribute name="margin-top">0pt</xsl:attribute>
-  <xsl:attribute name="margin-left">405pt</xsl:attribute>
+  <xsl:attribute name="margin-left">430pt</xsl:attribute>
   <xsl:attribute name="margin-bottom">0pt</xsl:attribute>
   <xsl:attribute name="background-color">#F6FBFC</xsl:attribute>
 </xsl:attribute-set>
