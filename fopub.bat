@@ -64,6 +64,10 @@ set XSLTHL_CONFIG_URI=!XSLTHL_CONFIG_URI:\=/!
 
 SET FOPUB_OPTS="-Djava.util.logging.config.file=$APP_DIR\logging.properties"
 
+echo .
+echo "########## PDF conversion started, please be patient, fellow human... ###########"
+echo .
+
 if "%TYPE%" == "pdf" (
   set OUTPUT_PDF_FILE="%SOURCE_ROOTNAME%.pdf"
   %FOPUB_CMD% -q -catalog -c "%DOCBOOK_XSL_DIR%\fop-config.xml" -xml "%SOURCE_FILE%" -xsl "%DOCBOOK_XSL_DIR%\fo-pdf.xsl" -pdf !OUTPUT_PDF_FILE! -param highlight.xslthl.config "%XSLTHL_CONFIG_URI%" -param admon.graphics.path "%DOCBOOK_DIR_PARAM%/images/" -param callout.graphics.path "%DOCBOOK_DIR_PARAM%/images/callouts/"
