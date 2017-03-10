@@ -107,6 +107,9 @@
     <xsl:attribute name="background-color">#E0E0E0</xsl:attribute>
     <xsl:attribute name="border">1pt solid black</xsl:attribute>
     <xsl:attribute name="fox:border-radius">4pt</xsl:attribute>
+    <xsl:attribute name="margin">4pt</xsl:attribute>
+    <xsl:attribute name="keep-together.within-page">auto</xsl:attribute>
+    <xsl:attribute name="keep-together.within-column">always</xsl:attribute>
   </xsl:attribute-set>
 
   <!--

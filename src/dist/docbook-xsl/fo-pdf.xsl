@@ -258,7 +258,7 @@
   <xsl:param name="page.margin.inner">25mm</xsl:param> <!-- side margin of page (left, towards binding) -->
   <xsl:param name="page.margin.outer">5mm</xsl:param> <!-- side margin of page (right, away from binding) -->
   <xsl:param name="body.margin.top">10mm</xsl:param> <!-- top margin of content -->
-  <xsl:param name="body.margin.bottom">10mm</xsl:param> <!-- bottom margin of content -->
+  <xsl:param name="body.margin.bottom">15mm</xsl:param> <!-- bottom margin of content -->
   <xsl:param name="body.margin.inner">4mm</xsl:param> <!-- side margin of content (left, towards binding) -->
   <xsl:param name="body.margin.outer">6mm</xsl:param> <!-- side margin of content (right, away from binding) -->
   <xsl:param name="body.start.indent">0</xsl:param> <!-- text indentation -->
@@ -381,7 +381,7 @@
   -->
 
 
-<xsl:param name="margin.note.width">20px</xsl:param>
+<!--<xsl:param name="margin.note.width">20px</xsl:param>-->
 <xsl:param name="margin.note.float.type">none</xsl:param> 
 
 <xsl:template match="db:sidebar">
@@ -399,6 +399,7 @@
   <xsl:attribute name="padding-bottom">0pt</xsl:attribute>
   <xsl:attribute name="margin-top">0pt</xsl:attribute>
   <xsl:attribute name="margin-left">430pt</xsl:attribute>
+  <xsl:attribute name="margin-right">15pt</xsl:attribute>
   <xsl:attribute name="margin-bottom">0pt</xsl:attribute>
   <xsl:attribute name="background-color">#F6FBFC</xsl:attribute>
 </xsl:attribute-set>
@@ -463,8 +464,8 @@
   <!--
   <xsl:param name="graphicsize.extension">1</xsl:param>
   -->
-  <xsl:param name="default.image.width">6.3in</xsl:param>
-  <xsl:param name="default.inline.image.height">1em</xsl:param>
+  <xsl:param name="default.image.width">3.3in</xsl:param>
+  <xsl:param name="default.inline.image.height">.9em</xsl:param>
 
   <xsl:template name="process.image">
     <!-- if image is wider than the page, shrink it down to default.image.width -->
@@ -1020,8 +1021,8 @@
     <xsl:attribute name="color"><xsl:value-of select="$border.color"/></xsl:attribute>
     <xsl:attribute name="leader-pattern">rule</xsl:attribute>
     <xsl:attribute name="leader-length">2in</xsl:attribute>
-    <xsl:attribute name="rule-thickness">0.5pt</xsl:attribute>
-    <xsl:attribute name="margin">5pt</xsl:attribute>
+    <xsl:attribute name="rule-thickness">0.8pt</xsl:attribute>
+    <xsl:attribute name="margin">10pt</xsl:attribute>
 
   </xsl:attribute-set>
 
