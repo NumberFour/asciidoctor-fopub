@@ -6,6 +6,12 @@ version = '1.0.0-SNAPSHOT'
 repositories {
   mavenCentral()
   mavenLocal() // snags valid artifacts from local Maven repository
+  maven {
+    url "https://repository.apache.org/content/repositories/snapshots/"
+  }
+  maven {
+    url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/"
+  }
 }
 
 configurations {
@@ -18,7 +24,7 @@ dependencies {
   // avalon dependencies need to be specified to align with version available
   compile 'org.apache.avalon.framework:avalon-framework-api:4.3.1'
   compile 'org.apache.avalon.framework:avalon-framework-impl:4.3.1'
-  compile 'org.apache.xmlgraphics:fop:2.1'
+  compile 'org.apache.xmlgraphics:fop:2.2.0-SNAPSHOT'
   runtime 'net.sourceforge.jeuclid:jeuclid-fop:3.1.9'
   runtime 'net.sf.xslthl:xslthl:2.1.0'
   // To enable hyphenation, uncomment the next line, then run `./gradlew clean` then use `./fopub`
