@@ -134,6 +134,10 @@ case $FORMAT in
   ;;
 esac
 
+echo ""
+echo "########## PDF conversion started, please be patient... ###########"
+echo ""
+
 eval $FOPUB_CMD -q -catalog \
   -c \"$DOCBOOK_XSL_DIR/fop-config.xml\" \
   $CONVERT_ARGS \
