@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:fox="http://xmlgraphics.apache.org/fop/extensions">
 
   <!-- Asciidoctor theme -->
   <xsl:param name="text.color">#222222</xsl:param>
@@ -45,8 +46,8 @@
   <xsl:param name="code.background-color">transparent</xsl:param>
   -->
 
-  <!-- disable messages that cause some processors to exit prematurely -->
-  <xsl:template name="root.messages"/>
+  <!-- disable messages that cause some processors to exit prematurely
+  <xsl:template name="root.messages"/> -->
 
   <!-- Disable watermark image to avoid long timeouts fetching from internet -->
   <xsl:param name="draft.watermark.image"/>
@@ -100,11 +101,20 @@
   <xsl:param name="navig.graphics.path">images/icons/</xsl:param>
   <xsl:param name="navig.showtitles">0</xsl:param>
 
-  <xsl:param name="shade.verbatim">0</xsl:param>
+   <!-- shade.verbatim.style is added to listings when shade.verbatim is enabled -->
+  <xsl:param name="shade.verbatim">1</xsl:param>
 
-  <xsl:attribute-set name="shade.verbatim.style">
-    <xsl:attribute name="border">0</xsl:attribute>
-    <xsl:attribute name="background-color">#E0E0E0</xsl:attribute>
+  <xsl:attribute-set name="shade.verbatim.style"  use-attribute-sets="example.properties">
+    <xsl:attribute name="border">1pt solid grey</xsl:attribute>
+    <xsl:attribute name="fox:border-radius">4pt</xsl:attribute>
+    <xsl:attribute name="background-color">#eeeeee</xsl:attribute> 
+    <xsl:attribute name="keep-together.within-column">auto</xsl:attribute>
+    <xsl:attribute name="wrap-option">wrap</xsl:attribute>
+    <xsl:attribute name="border">1pt solid grey</xsl:attribute>
+    <xsl:attribute name="fox:border-radius">4pt</xsl:attribute>
+    <xsl:attribute name="color"><xsl:value-of select="$text.color"/></xsl:attribute>
+    <xsl:attribute name="padding">1em .5em .75em .5em</xsl:attribute>
+    <xsl:attribute name="margin-left"><xsl:value-of select="$title.margin.left"/></xsl:attribute>
   </xsl:attribute-set>
 
   <!--
@@ -127,7 +137,7 @@
   <xsl:param name="admon.textlabel">0</xsl:param>
 
   <xsl:param name="chunk.first.sections" select="0"/>
-  <xsl:param name="chunk.quietly" select="0"/>
+  <xsl:param name="chunk.quietly" select="1"/>
   <xsl:param name="chunk.section.depth" select="1"/>
   <xsl:param name="chunk.toc" select="''"/>
   <xsl:param name="chunk.tocs.and.lots" select="0"/>
