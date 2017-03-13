@@ -28,8 +28,7 @@ dependencies {
 }
 
 mainClassName = 'org.apache.fop.cli.Main'
-applicationDefaultJvmArgs = ['-Dxml.catalog.files=APP_DIR/catalog.xml']
-//applicationDefaultJvmArgs = ['-Dxml.catalog.files=/etc/xml/catalog']
+applicationDefaultJvmArgs = ['-Dxml.catalog.files=APP_DIR/catalog.xml', '-Djava.util.logging.config.file=APP_DIR/logging.properties']
 
 installApp {
   destinationDir = file("$buildDir/${project.name}")
@@ -75,7 +74,7 @@ applicationDistribution.from(copyLoggingConfig) {
 CreateStartScripts startScripts = project.startScripts
 startScripts.with {
   doLast {
-    unixScript.text = unixScript.text.replaceFirst('APP_DIR', '\\$APP_DIR')
-    windowsScript.text = windowsScript.text.replaceFirst('APP_DIR', '%APP_HOME%')
+    unixScript.text = unixScript.text.replaceAll('APP_DIR', '\\$APP_DIR')
+    windowsScript.text = windowsScript.text.replaceAll('APP_DIR', '%APP_HOME%')
   }
 }

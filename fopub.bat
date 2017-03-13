@@ -62,8 +62,6 @@ set DOCBOOK_DIR_PARAM=file:///%DOCBOOK_DIR%
 set DOCBOOK_DIR_PARAM=!DOCBOOK_DIR_PARAM:\=/!
 set XSLTHL_CONFIG_URI=!XSLTHL_CONFIG_URI:\=/!
 
-SET FOPUB_OPTS="-Djava.util.logging.config.file=$APP_DIR\logging.properties"
-
 echo .
 echo "########## PDF conversion started, please be patient, fellow human... ###########"
 echo .
