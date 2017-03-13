@@ -19,12 +19,47 @@ dependencies {
   compile 'org.apache.avalon.framework:avalon-framework-api:4.3.1'
   compile 'org.apache.avalon.framework:avalon-framework-impl:4.3.1'
   compile 'org.apache.xmlgraphics:fop:2.1'
+    // https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-svggen
+  compile group: 'org.apache.xmlgraphics', name: 'batik-svggen', version: '1.8'
+  // https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-svg-dom
+  compile group: 'org.apache.xmlgraphics', name: 'batik-svg-dom', version: '1.8'
+  // https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-dom
+  compile group: 'org.apache.xmlgraphics', name: 'batik-dom', version: '1.8'
+  // https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-util
+  compile group: 'org.apache.xmlgraphics', name: 'batik-util', version: '1.8'
+  // https://mvnrepository.com/artifact/xalan/xalan
+  compile group: 'xalan', name: 'xalan', version: '2.7.2'
+  // https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-transcoder
+  compile group: 'org.apache.xmlgraphics', name: 'batik-transcoder', version: '1.8'
+  // https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-css
+  compile group: 'org.apache.xmlgraphics', name: 'batik-css', version: '1.8'
+  // https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-ext
+  compile group: 'org.apache.xmlgraphics', name: 'batik-ext', version: '1.8'
+  // https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-awt-util
+  compile group: 'org.apache.xmlgraphics', name: 'batik-awt-util', version: '1.8'
+  // https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-gvt
+  compile group: 'org.apache.xmlgraphics', name: 'batik-gvt', version: '1.8'
+  // https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-xml
+  compile group: 'org.apache.xmlgraphics', name: 'batik-xml', version: '1.8'
+  // https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-anim
+  compile group: 'org.apache.xmlgraphics', name: 'batik-anim', version: '1.8'
+  // https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-extension
+  compile group: 'org.apache.xmlgraphics', name: 'batik-extension', version: '1.8'
+  // https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-awt-util
+  compile group: 'org.apache.xmlgraphics', name: 'batik-awt-util', version: '1.8'
   runtime 'net.sourceforge.jeuclid:jeuclid-fop:3.1.9'
   runtime 'net.sf.xslthl:xslthl:2.1.0'
   // To enable hyphenation, uncomment the next line, then run `./gradlew clean` then use `./fopub`
   //runtime 'net.sf.offo:fop-hyph:2.0'
-  dist 'net.sf.docbook:docbook-xsl:1.78.1:ns-resources@zip'
+  dist 'net.sf.docbook:docbook-xsl:1.79.1:ns-resources@zip'
   dist 'org.neo4j.build.plugins:neo4j-docbook-xml:4.5'
+
+
+
+
+
+
+
 }
 
 mainClassName = 'org.apache.fop.cli.Main'
@@ -36,7 +71,7 @@ installApp {
 }
 
 task extractDocbookXsl(type: Copy) {
-  def archive = configurations.dist.find { it.name.endsWith('docbook-xsl-1.78.1-ns-resources.zip') }
+  def archive = configurations.dist.find { it.name.endsWith('docbook-xsl-1.79.1-ns-resources.zip') }
   def outputDir = file("$buildDir/unpacked/docbook")
   from(zipTree(archive)) {
     // strip root docbook/ directory
