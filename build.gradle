@@ -34,7 +34,7 @@ dependencies {
 }
 
 mainClassName = 'org.apache.fop.cli.Main'
-applicationDefaultJvmArgs = ['-Dxml.catalog.files=APP_DIR/catalog.xml', '-Djava.util.logging.config.file=APP_DIR/logging.properties']
+applicationDefaultJvmArgs = ['-Dxml.catalog.files=APP_DIR/catalog.xml', '-Djava.util.logging.config.file=APP_DIR/logging/logging.properties']
 
 installApp {
   destinationDir = file("$buildDir/${project.name}")
@@ -69,12 +69,12 @@ applicationDistribution.from(extractDocbookXml) {
 }
 
 task copyLoggingConfig(type: Copy) {
-	from "logging.properties"
-	into file("$buildDir/logging/")
+  from "logging.properties"
+  into file("$buildDir/logging")
 }
 
 applicationDistribution.from(copyLoggingConfig) {
-	into "."
+  into "logging"
 }
 
 CreateStartScripts startScripts = project.startScripts
