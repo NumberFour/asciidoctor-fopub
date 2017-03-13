@@ -63,7 +63,7 @@ set DOCBOOK_DIR_PARAM=!DOCBOOK_DIR_PARAM:\=/!
 set XSLTHL_CONFIG_URI=!XSLTHL_CONFIG_URI:\=/!
 
 echo .
-echo "########## PDF conversion started, please be patient, fellow human... ###########"
+echo "########## PDF conversion started, please be patient... ###########"
 echo .
 
 if "%TYPE%" == "pdf" (
