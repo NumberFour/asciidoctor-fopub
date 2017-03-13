@@ -197,7 +197,7 @@
   <xsl:param name="page.margin.inner">10mm</xsl:param> <!-- side margin of page (left, towards binding) -->
   <xsl:param name="page.margin.outer">10mm</xsl:param> <!-- side margin of page (right, away from binding) -->
   <xsl:param name="body.margin.top">15mm</xsl:param> <!-- top margin of content -->
-  <xsl:param name="body.margin.bottom">10mm</xsl:param> <!-- bottom margin of content -->
+  <xsl:param name="body.margin.bottom">20mm</xsl:param> <!-- bottom margin of content -->
   <xsl:param name="body.margin.inner">20mm</xsl:param> <!-- side margin of content (left, towards binding) -->
   <xsl:param name="body.margin.outer">6mm</xsl:param> <!-- side margin of content (right, away from binding) -->
   <xsl:param name="body.start.indent">5mm</xsl:param> <!-- text indentation -->
@@ -291,10 +291,9 @@
     <xsl:attribute name="background-color">#FAFAFA</xsl:attribute>
     <xsl:attribute name="padding-left">2pt</xsl:attribute>
     <xsl:attribute name="padding-top">2pt</xsl:attribute>
-    <xsl:attribute name="border-left-width">.75pt</xsl:attribute>
-    <xsl:attribute name="border-left-style">solid</xsl:attribute>
-    <xsl:attribute name="border-left-color"><xsl:value-of select="$border.color"/></xsl:attribute>
+    <xsl:attribute name="padding-bottom">2pt</xsl:attribute>
     <xsl:attribute name="margin-top">0</xsl:attribute>
+    <xsl:attribute name="margin-bottom">0</xsl:attribute>
   </xsl:attribute-set>
 
   <xsl:attribute-set name="graphical.admonition.properties">
@@ -303,11 +302,8 @@
   </xsl:attribute-set>
 
   <xsl:attribute-set name="example.properties" use-attribute-sets="formal.object.properties">
-    <xsl:attribute name="border">1pt solid grey</xsl:attribute>
+    <xsl:attribute name="border">1pt solid black</xsl:attribute>
     <xsl:attribute name="fox:border-radius">4pt</xsl:attribute>
-    <xsl:attribute name="border-width">1pt</xsl:attribute>
-    <xsl:attribute name="border-style">solid</xsl:attribute>
-    <xsl:attribute name="border-color">#E6E6E6</xsl:attribute>
     <xsl:attribute name="padding-top">12pt</xsl:attribute>
     <xsl:attribute name="padding-right">12pt</xsl:attribute>
     <xsl:attribute name="padding-bottom">0</xsl:attribute>
@@ -316,6 +312,23 @@
     <xsl:attribute name="margin-right">0</xsl:attribute>
   </xsl:attribute-set>
 
+<!--
+  CODE BLOCKS
+-->
+
+  <xsl:attribute-set name="shade.verbatim.style">
+    <xsl:attribute name="margin-top">0pt</xsl:attribute>
+    <xsl:attribute name="margin-left">0pt</xsl:attribute>
+    <xsl:attribute name="padding-top">3pt</xsl:attribute>
+    <xsl:attribute name="padding-left">3pt</xsl:attribute>
+    <xsl:attribute name="border">1pt solid grey</xsl:attribute>
+    <xsl:attribute name="fox:border-radius">4pt</xsl:attribute>
+    <xsl:attribute name="background-color">#eeeeee</xsl:attribute> 
+    <xsl:attribute name="keep-together.within-column">auto</xsl:attribute>
+    <xsl:attribute name="wrap-option">wrap</xsl:attribute>
+    <xsl:attribute name="color"><xsl:value-of select="$text.color"/></xsl:attribute>
+
+  </xsl:attribute-set>
 
 
   <!--
@@ -330,7 +343,7 @@
   <xsl:call-template name="margin.note"> </xsl:call-template>  
 </xsl:template>
 
-<xsl:attribute-set name="margin.note.properties">
+<xsl:attribute-set name="margin.note.properties" use-attribute-sets="formal.object.properties">
   <xsl:attribute name="keep-together.within-column">auto</xsl:attribute>
   <xsl:attribute name="font-size">.6em</xsl:attribute>
   <xsl:attribute name="border">1pt solid grey</xsl:attribute>
@@ -340,7 +353,7 @@
   <xsl:attribute name="padding-top">0pt</xsl:attribute>
   <xsl:attribute name="padding-bottom">0pt</xsl:attribute>
   <xsl:attribute name="margin-top">0pt</xsl:attribute>
-  <xsl:attribute name="margin-left">0pt</xsl:attribute>
+  <xsl:attribute name="margin-left">350pt</xsl:attribute>
   <xsl:attribute name="margin-bottom">0pt</xsl:attribute>
   <xsl:attribute name="background-color">#F6FBFC</xsl:attribute>
 </xsl:attribute-set>
