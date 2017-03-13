@@ -329,17 +329,15 @@
     <xsl:attribute name="color"><xsl:value-of select="$text.color"/></xsl:attribute>
   </xsl:attribute-set>
 
+<!--
+  SIDEBAR
+-->
 
-  <!--
-    SIDEBAR
-  -->
-
-
-<!--<xsl:param name="margin.note.width">50px</xsl:param>-->
+<xsl:param name="margin.note.width">100px</xsl:param>
 <xsl:param name="margin.note.float.type">none</xsl:param> 
 
 <xsl:template match="db:sidebar">
-  <xsl:call-template name="margin.note"> </xsl:call-template>  
+  <xsl:call-template name="margin.note"></xsl:call-template>  
 </xsl:template>
 
 <xsl:attribute-set name="margin.note.properties">
@@ -352,7 +350,7 @@
   <xsl:attribute name="padding-bottom">2pt</xsl:attribute>
   <xsl:attribute name="margin-top">2pt</xsl:attribute>
   <xsl:attribute name="margin-left">2pt</xsl:attribute>
-  <xsl:attribute name="margin-right">390pt</xsl:attribute>
+  <xsl:attribute name="margin-right">420pt</xsl:attribute>
   <xsl:attribute name="margin-bottom">2pt</xsl:attribute>
   <xsl:attribute name="background-color">#F6FBFC</xsl:attribute>
 </xsl:attribute-set>
