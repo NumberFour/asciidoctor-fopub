@@ -24,7 +24,7 @@
   <xsl:import href="callouts.xsl"/>
 
   <!-- Enable extensions for FOP version 0.90 and later -->
-  <xsl:param name="fop1.extensions">0</xsl:param>
+  <xsl:param name="fop1.extensions">1</xsl:param>
 
   <!--
     AsciiDoc compat
@@ -111,7 +111,7 @@
   -->
 
   <xsl:param name="hyphenate">true</xsl:param>
-  <xsl:param name="line-height">1.2</xsl:param>
+  <xsl:param name="line-height">1.5</xsl:param>
   <!--
   <xsl:param name="alignment">left</xsl:param>
   -->
@@ -127,10 +127,10 @@
 
   <!-- normal.para.spacing is the only attribute set applied to all paragraphs -->
   <xsl:attribute-set name="normal.para.spacing">
-    <xsl:attribute name="space-before.minimum">.2em</xsl:attribute>
+    <xsl:attribute name="space-before.minimum">.4em</xsl:attribute>
     <xsl:attribute name="space-before.optimum">1em</xsl:attribute>
     <xsl:attribute name="space-before.maximum">2em</xsl:attribute>
-    <xsl:attribute name="space-after.minimum">0.2em</xsl:attribute>
+    <xsl:attribute name="space-after.minimum">0.4em</xsl:attribute>
     <xsl:attribute name="space-after.optimum">1em</xsl:attribute>
     <xsl:attribute name="space-after.maximum">2em</xsl:attribute>
     <!--
@@ -196,12 +196,12 @@
   <xsl:param name="page.margin.bottom">10mm</xsl:param> <!-- bottom margin of page -->
   <xsl:param name="page.margin.inner">10mm</xsl:param> <!-- side margin of page (left, towards binding) -->
   <xsl:param name="page.margin.outer">10mm</xsl:param> <!-- side margin of page (right, away from binding) -->
-  <xsl:param name="body.margin.top">15mm</xsl:param> <!-- top margin of content -->
-  <xsl:param name="body.margin.bottom">15mm</xsl:param> <!-- bottom margin of content -->
-  <xsl:param name="body.margin.inner">20mm</xsl:param> <!-- side margin of content (left, towards binding) -->
-  <xsl:param name="body.margin.outer">6mm</xsl:param> <!-- side margin of content (right, away from binding) -->
-  <xsl:param name="body.start.indent">0mm</xsl:param> <!-- text indentation -->
-  <xsl:param name="body.end.indent">0mm</xsl:param> <!-- text recess from right -->
+  <xsl:param name="body.margin.top">10mm</xsl:param> <!-- top margin of content -->
+  <xsl:param name="body.margin.bottom">10mm</xsl:param> <!-- bottom margin of content -->
+  <xsl:param name="body.margin.inner">15mm</xsl:param> <!-- side margin of content (left, towards binding) -->
+  <xsl:param name="body.margin.outer">4mm</xsl:param> <!-- side margin of content (right, away from binding) -->
+  <xsl:param name="body.start.indent">2mm</xsl:param> <!-- text indentation -->
+  <xsl:param name="body.end.indent">2mm</xsl:param> <!-- text recess from right -->
   <xsl:param name="region.before.extent">10mm</xsl:param> <!-- height of page header -->
   <xsl:param name="region.after.extent">20mm</xsl:param> <!-- height of page footer -->
   <xsl:param name="header.column.widths">1 5 1</xsl:param>
@@ -331,8 +331,8 @@
   SIDEBAR
 -->
 
-<!--<xsl:param name="margin.note.width">100px</xsl:param>
-<xsl:param name="margin.note.float.type">none</xsl:param> -->
+<xsl:param name="margin.note.width">100px</xsl:param>
+<xsl:param name="margin.note.float.type">none</xsl:param>
 
 <xsl:template match="db:sidebar">
   <xsl:call-template name="margin.note"></xsl:call-template>  
@@ -346,10 +346,7 @@
   <xsl:attribute name="padding-right">2pt</xsl:attribute>
   <xsl:attribute name="padding-top">0pt</xsl:attribute>
   <xsl:attribute name="padding-bottom">0pt</xsl:attribute>
-  <xsl:attribute name="margin-top">0pt</xsl:attribute>
-  <xsl:attribute name="margin-left">2pt</xsl:attribute>
-  <xsl:attribute name="margin-right">420pt</xsl:attribute>
-  <xsl:attribute name="margin-bottom">0pt</xsl:attribute>
+  <xsl:attribute name="margin-right">400pt</xsl:attribute>
   <xsl:attribute name="background-color">#F6FBFC</xsl:attribute>
 </xsl:attribute-set>
 
@@ -386,6 +383,7 @@
   <xsl:param name="table.frame.border.left.color">white</xsl:param>
 
   <xsl:attribute-set name="table.cell.padding">
+    <xsl:attribute name="margin">1pt</xsl:attribute>
     <xsl:attribute name="padding-left">2pt</xsl:attribute>
     <xsl:attribute name="padding-right">2pt</xsl:attribute>
     <xsl:attribute name="padding-top">2pt</xsl:attribute>
@@ -613,10 +611,10 @@
     <xsl:attribute name="color"><xsl:value-of select="$title.color"/></xsl:attribute>
     <!-- font size is calculated dynamically by section.heading template -->
     <xsl:attribute name="keep-with-next.within-column">auto</xsl:attribute>
-    <xsl:attribute name="space-before.minimum">0.2em</xsl:attribute>
+    <xsl:attribute name="space-before.minimum">0.4em</xsl:attribute>
     <xsl:attribute name="space-before.optimum">.8em</xsl:attribute>
     <xsl:attribute name="space-before.maximum">1.2em</xsl:attribute>
-    <xsl:attribute name="space-after.minimum">0.2em</xsl:attribute>
+    <xsl:attribute name="space-after.minimum">0.4em</xsl:attribute>
     <xsl:attribute name="space-after.optimum">.8em</xsl:attribute>
     <xsl:attribute name="space-after.maximum">1.2em</xsl:attribute>
     <xsl:attribute name="text-align">left</xsl:attribute>

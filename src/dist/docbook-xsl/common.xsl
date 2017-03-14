@@ -95,9 +95,9 @@
 
   <xsl:param name="suppress.navigation">0</xsl:param>
   <xsl:param name="navig.graphics.extension">.png</xsl:param>
-  <xsl:param name="navig.graphics">1</xsl:param>
+  <xsl:param name="navig.graphics">0</xsl:param>
   <xsl:param name="navig.graphics.path">images/icons/</xsl:param>
-  <xsl:param name="navig.showtitles">1</xsl:param>
+  <xsl:param name="navig.showtitles">0</xsl:param>
 
    <!-- shade.verbatim.style is added to listings when shade.verbatim is enabled -->
   <xsl:param name="shade.verbatim">1</xsl:param>
@@ -136,7 +136,7 @@
   <xsl:param name="table.footnote.number.symbols" select="''"/>
   <xsl:param name="table.frame.border.color" select="'#527bbd'"/>
   <xsl:param name="table.frame.border.style" select="'solid'"/>
-  <xsl:param name="table.frame.border.thickness" select="'2px'"/>
+  <xsl:param name="table.frame.border.thickness" select="'1px'"/>
   <!-- disabled due to missing adjustColumnWidths function -->
   <xsl:param name="tablecolumns.extension">0</xsl:param>
 
