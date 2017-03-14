@@ -115,7 +115,7 @@
   <!--
   <xsl:param name="alignment">left</xsl:param>
   -->
-  <xsl:param name="alignment">justify</xsl:param>
+  <xsl:param name="alignment">left</xsl:param>
   <xsl:param name="body.font.master">8</xsl:param>
   <xsl:param name="body.font.size">
     <xsl:value-of select="$body.font.master"/><xsl:text>pt</xsl:text>
@@ -127,12 +127,12 @@
 
   <!-- normal.para.spacing is the only attribute set applied to all paragraphs -->
   <xsl:attribute-set name="normal.para.spacing">
+    <xsl:attribute name="space-before.minimum">.4em</xsl:attribute>
     <xsl:attribute name="space-before.optimum">1em</xsl:attribute>
-    <xsl:attribute name="space-before.minimum">1em</xsl:attribute>
-    <xsl:attribute name="space-before.maximum">1em</xsl:attribute>
+    <xsl:attribute name="space-before.maximum">2em</xsl:attribute>
+    <xsl:attribute name="space-after.minimum">0.4em</xsl:attribute>
     <xsl:attribute name="space-after.optimum">1em</xsl:attribute>
-    <xsl:attribute name="space-after.minimum">0.8em</xsl:attribute>
-    <xsl:attribute name="space-after.maximum">1em</xsl:attribute>
+    <xsl:attribute name="space-after.maximum">2em</xsl:attribute>
     <!--
     <xsl:attribute name="color"><xsl:value-of select="$text.color"/></xsl:attribute>
     -->
@@ -162,12 +162,12 @@
     <xsl:attribute name="border-bottom-style">solid</xsl:attribute>
     <xsl:attribute name="border-width">1pt</xsl:attribute>
     <xsl:attribute name="border-color">#BFBFBF</xsl:attribute>
-    <xsl:attribute name="space-before.minimum">0</xsl:attribute>
-    <xsl:attribute name="space-before.optimum">.2em</xsl:attribute>
-    <xsl:attribute name="space-before.maximum">.4em</xsl:attribute>
-    <xsl:attribute name="space-after.minimum">1em</xsl:attribute>
+    <xsl:attribute name="space-before.minimum">0.2</xsl:attribute>
+    <xsl:attribute name="space-before.optimum">.6em</xsl:attribute>
+    <xsl:attribute name="space-before.maximum">2em</xsl:attribute>
+    <xsl:attribute name="space-after.minimum">0.2em</xsl:attribute>
     <xsl:attribute name="space-after.optimum">1.2em</xsl:attribute>
-    <xsl:attribute name="space-after.maximum">1.4em</xsl:attribute>
+    <xsl:attribute name="space-after.maximum">1.8em</xsl:attribute>
     <xsl:attribute name="hyphenate">false</xsl:attribute>
     <xsl:attribute name="wrap-option">wrap</xsl:attribute>
     <xsl:attribute name="white-space-collapse">false</xsl:attribute>
@@ -185,88 +185,27 @@
     <xsl:attribute name="hyphenation-character">-</xsl:attribute>
   </xsl:attribute-set>
 
-  <!-- shade.verbatim.style is added to listings when shade.verbatim is enabled -->
-  <xsl:param name="shade.verbatim">1</xsl:param>
-
-  <xsl:attribute-set name="shade.verbatim.style">
-    <xsl:attribute name="background-color">#eeeeee</xsl:attribute> 
-    <xsl:attribute name="keep-together.within-column">auto</xsl:attribute>
-    <xsl:attribute name="wrap-option">wrap</xsl:attribute>
-    <!--
-    <xsl:attribute name="background-color">
-      <xsl:choose>
-        <xsl:when test="ancestor::db:note">
-          <xsl:text>#D6DEE0</xsl:text>
-        </xsl:when>
-        <xsl:when test="ancestor::db:caution">
-          <xsl:text>#FAF8ED</xsl:text>
-        </xsl:when>
-        <xsl:when test="ancestor::db:important">
-          <xsl:text>#E1EEF4</xsl:text>
-        </xsl:when>
-        <xsl:when test="ancestor::db:warning">
-          <xsl:text>#FAF8ED</xsl:text>
-        </xsl:when>
-        <xsl:when test="ancestor::db:tip">
-          <xsl:text>#D5E1D5</xsl:text>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:text>#FFF</xsl:text>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:attribute>
-    -->
-    <xsl:attribute name="color"><xsl:value-of select="$text.color"/></xsl:attribute>
-    <!--
-    <xsl:attribute name="color">
-      <xsl:choose>
-        <xsl:when test="ancestor::db:note">
-          <xsl:text>#334558</xsl:text>
-        </xsl:when>
-        <xsl:when test="ancestor::db:caution">
-          <xsl:text>#334558</xsl:text>
-        </xsl:when>
-        <xsl:when test="ancestor::db:important">
-          <xsl:text>#334558</xsl:text>
-        </xsl:when>
-        <xsl:when test="ancestor::db:warning">
-          <xsl:text>#334558</xsl:text>
-        </xsl:when>
-        <xsl:when test="ancestor::db:tip">
-          <xsl:text>#334558</xsl:text>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:text>#222</xsl:text>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:attribute>
-    -->
-    <xsl:attribute name="padding">1em .5em .75em .5em</xsl:attribute>
-    <!-- make sure block it aligns with block title -->
-    <xsl:attribute name="margin-left"><xsl:value-of select="$title.margin.left"/></xsl:attribute>
-  </xsl:attribute-set>
-
   <!--
     Page layout
   -->
 
   <xsl:param name="paper.type">A4</xsl:param> <!-- alternative size is USletter -->
   <xsl:param name="headers.on.blank.pages">1</xsl:param>
-  <xsl:param name="footers.on.blank.pages">1</xsl:param>
+  <xsl:param name="footers.on.blank.pages">0</xsl:param>
   <xsl:param name="page.margin.top">10mm</xsl:param> <!-- top margin of page -->
-  <xsl:param name="page.margin.bottom">20mm</xsl:param> <!-- top margin of page -->
+  <xsl:param name="page.margin.bottom">10mm</xsl:param> <!-- bottom margin of page -->
   <xsl:param name="page.margin.inner">10mm</xsl:param> <!-- side margin of page (left, towards binding) -->
   <xsl:param name="page.margin.outer">10mm</xsl:param> <!-- side margin of page (right, away from binding) -->
-  <xsl:param name="body.margin.top">15mm</xsl:param> <!-- top margin of content -->
-  <xsl:param name="body.margin.bottom">20mm</xsl:param> <!-- bottom margin of content -->
-  <xsl:param name="body.margin.inner">4mm</xsl:param> <!-- side margin of content (left, towards binding) -->
-  <xsl:param name="body.margin.outer">6mm</xsl:param> <!-- side margin of content (right, away from binding) -->
-  <xsl:param name="body.start.indent">0</xsl:param> <!-- text indentation -->
-  <xsl:param name="body.end.indent">0</xsl:param> <!-- text recess from right -->
+  <xsl:param name="body.margin.top">10mm</xsl:param> <!-- top margin of content -->
+  <xsl:param name="body.margin.bottom">10mm</xsl:param> <!-- bottom margin of content -->
+  <xsl:param name="body.margin.inner">15mm</xsl:param> <!-- side margin of content (left, towards binding) -->
+  <xsl:param name="body.margin.outer">4mm</xsl:param> <!-- side margin of content (right, away from binding) -->
+  <xsl:param name="body.start.indent">2mm</xsl:param> <!-- text indentation -->
+  <xsl:param name="body.end.indent">2mm</xsl:param> <!-- text recess from right -->
   <xsl:param name="region.before.extent">10mm</xsl:param> <!-- height of page header -->
   <xsl:param name="region.after.extent">20mm</xsl:param> <!-- height of page footer -->
   <xsl:param name="header.column.widths">1 5 1</xsl:param>
-
+  <xsl:param name="double.sided" select="1"></xsl:param>
   <!--
     Table of Contents
   -->
@@ -323,14 +262,14 @@
    -->
 
   <xsl:attribute-set name="formal.object.properties">
-    <xsl:attribute name="space-before.minimum">0.8em</xsl:attribute>
-    <xsl:attribute name="space-before.optimum">1em</xsl:attribute>
-    <xsl:attribute name="space-before.maximum">1.2em</xsl:attribute>
-    <xsl:attribute name="space-after.minimum">0.8em</xsl:attribute>
-    <xsl:attribute name="space-after.optimum">1em</xsl:attribute>
-    <xsl:attribute name="space-after.maximum">1.2em</xsl:attribute>
+    <xsl:attribute name="space-before.minimum">0.2em</xsl:attribute>
+    <xsl:attribute name="space-before.optimum">.4em</xsl:attribute>
+    <xsl:attribute name="space-before.maximum">.8em</xsl:attribute>
+    <xsl:attribute name="space-after.minimum">0.2em</xsl:attribute>
+    <xsl:attribute name="space-after.optimum">.4em</xsl:attribute>
+    <xsl:attribute name="space-after.maximum">.8em</xsl:attribute>
     <!-- Make examples, tables etc. break across pages -->
-    <xsl:attribute name="keep-together.within-page">auto</xsl:attribute>
+    <xsl:attribute name="keep-together.within-column">auto</xsl:attribute>
   </xsl:attribute-set>
 
   <xsl:param name="formal.title.placement">
@@ -344,51 +283,62 @@
   </xsl:attribute-set>
 
   <xsl:template match="*" mode="admon.graphic.width">
-    <xsl:text>36pt</xsl:text>
+    <xsl:text>24pt</xsl:text>
   </xsl:template>
 
-  <xsl:attribute-set name="admonition.properties">
+  <xsl:attribute-set name="admonition.properties" use-attribute-sets="example.properties">
     <xsl:attribute name="color">#6F6F6F</xsl:attribute>
-    <xsl:attribute name="padding-left">18pt</xsl:attribute>
-    <xsl:attribute name="border-left-width">.75pt</xsl:attribute>
-    <xsl:attribute name="border-left-style">solid</xsl:attribute>
-    <xsl:attribute name="border-left-color"><xsl:value-of select="$border.color"/></xsl:attribute>
-    <xsl:attribute name="margin-left">0</xsl:attribute>
+    <xsl:attribute name="background-color">#FAFAFA</xsl:attribute>
+    <xsl:attribute name="padding-left">2pt</xsl:attribute>
+    <xsl:attribute name="padding-top">2pt</xsl:attribute>
+    <xsl:attribute name="padding-bottom">2pt</xsl:attribute>
+    <xsl:attribute name="margin-top">2pt</xsl:attribute>
+    <xsl:attribute name="margin-bottom">2pt</xsl:attribute>
   </xsl:attribute-set>
 
   <xsl:attribute-set name="graphical.admonition.properties">
-    <xsl:attribute name="margin-left">12pt</xsl:attribute>
-    <xsl:attribute name="margin-right">12pt</xsl:attribute>
+    <xsl:attribute name="margin">8pt</xsl:attribute>
   </xsl:attribute-set>
 
   <xsl:attribute-set name="example.properties" use-attribute-sets="formal.object.properties">
-    <xsl:attribute name="border-width">1pt</xsl:attribute>
-    <xsl:attribute name="border-style">solid</xsl:attribute>
-    <xsl:attribute name="border-color">#E6E6E6</xsl:attribute>
-    <xsl:attribute name="padding-top">12pt</xsl:attribute>
+    <xsl:attribute name="border">1pt solid black</xsl:attribute>
+    <xsl:attribute name="fox:border-radius">4pt</xsl:attribute>
     <xsl:attribute name="padding-right">12pt</xsl:attribute>
-    <xsl:attribute name="padding-bottom">0</xsl:attribute>
+    <xsl:attribute name="padding-bottom">0pt</xsl:attribute>
     <xsl:attribute name="padding-left">12pt</xsl:attribute>
     <xsl:attribute name="margin-left">0</xsl:attribute>
     <xsl:attribute name="margin-right">0</xsl:attribute>
   </xsl:attribute-set>
 
+<!--
+  CODE BLOCKS
+-->
 
+  <xsl:attribute-set name="shade.verbatim.style">
+    <xsl:attribute name="margin-top">0pt</xsl:attribute>
+    <xsl:attribute name="margin-left">0pt</xsl:attribute>
+    <xsl:attribute name="padding-top">3pt</xsl:attribute>
+    <xsl:attribute name="padding-left">3pt</xsl:attribute>
+    <xsl:attribute name="border">1pt solid grey</xsl:attribute>
+    <xsl:attribute name="fox:border-radius">4pt</xsl:attribute>
+    <xsl:attribute name="background-color">#eeeeee</xsl:attribute> 
+    <xsl:attribute name="keep-together.within-column">auto</xsl:attribute>
+    <xsl:attribute name="wrap-option">wrap</xsl:attribute>
+    <xsl:attribute name="color"><xsl:value-of select="$text.color"/></xsl:attribute>
+  </xsl:attribute-set>
 
-  <!--
-    SIDEBAR
-  -->
+<!--
+  SIDEBAR
+-->
 
-
-<xsl:param name="margin.note.width">20px</xsl:param>
-<xsl:param name="margin.note.float.type">none</xsl:param> 
+<xsl:param name="margin.note.width">100px</xsl:param>
+<xsl:param name="margin.note.float.type">none</xsl:param>
 
 <xsl:template match="db:sidebar">
-  <xsl:call-template name="margin.note"> </xsl:call-template>  
+  <xsl:call-template name="margin.note"></xsl:call-template>  
 </xsl:template>
 
 <xsl:attribute-set name="margin.note.properties">
-  <xsl:attribute name="keep-together.within-column">always</xsl:attribute>
   <xsl:attribute name="font-size">.6em</xsl:attribute>
   <xsl:attribute name="border">1pt solid grey</xsl:attribute>
   <xsl:attribute name="fox:border-radius">4pt</xsl:attribute>
@@ -396,24 +346,10 @@
   <xsl:attribute name="padding-right">2pt</xsl:attribute>
   <xsl:attribute name="padding-top">0pt</xsl:attribute>
   <xsl:attribute name="padding-bottom">0pt</xsl:attribute>
-  <xsl:attribute name="margin-top">0pt</xsl:attribute>
-  <xsl:attribute name="margin-left">430pt</xsl:attribute>
-  <xsl:attribute name="margin-bottom">0pt</xsl:attribute>
+  <xsl:attribute name="margin-right">400pt</xsl:attribute>
   <xsl:attribute name="background-color">#F6FBFC</xsl:attribute>
 </xsl:attribute-set>
-<!--
-  <xsl:attribute-set name="sidebar.properties" use-attribute-sets="formal.object.properties">
-    <xsl:attribute name="border-style">none</xsl:attribute>
-    <xsl:attribute name="border-width">0pt</xsl:attribute>
-    <xsl:attribute name="border-color">#D9D9D9</xsl:attribute>
-    <xsl:attribute name="background-color">#FFFFFF</xsl:attribute>
-    <xsl:attribute name="padding-start">456pt</xsl:attribute>
-    <xsl:attribute name="padding-end">16pt</xsl:attribute>
-    <xsl:attribute name="padding-top">-14pt</xsl:attribute>
-    <xsl:attribute name="padding-right">-12pt</xsl:attribute>
-    <xsl:attribute name="font-size">7pt</xsl:attribute>
-  </xsl:attribute-set>
- -->
+
   <xsl:attribute-set name="sidebar.title.properties">
     <xsl:attribute name="font-family"><xsl:value-of select="$title.fontset"/></xsl:attribute>
     <xsl:attribute name="font-weight"><xsl:value-of select="$header.font-weight"/></xsl:attribute>
@@ -431,14 +367,14 @@
   -->
 
   <xsl:attribute-set name="table.cell.padding">
-    <xsl:attribute name="padding-left">4pt</xsl:attribute>
-    <xsl:attribute name="padding-right">4pt</xsl:attribute>
+    <xsl:attribute name="padding-left">2pt</xsl:attribute>
+    <xsl:attribute name="padding-right">2pt</xsl:attribute>
     <xsl:attribute name="padding-top">2pt</xsl:attribute>
     <xsl:attribute name="padding-bottom">2pt</xsl:attribute>
   </xsl:attribute-set>
 
-  <xsl:param name="table.frame.border.thickness">0.3pt</xsl:param>
-  <xsl:param name="table.cell.border.thickness">0.15pt</xsl:param>
+  <xsl:param name="table.frame.border.thickness">0.9pt</xsl:param>
+  <xsl:param name="table.cell.border.thickness">0.3pt</xsl:param>
   <xsl:param name="table.cell.border.color">#5c5c4f</xsl:param>
   <xsl:param name="table.frame.border.color">#5c5c4f</xsl:param>
   <xsl:param name="table.cell.border.right.color">white</xsl:param>
@@ -447,8 +383,9 @@
   <xsl:param name="table.frame.border.left.color">white</xsl:param>
 
   <xsl:attribute-set name="table.cell.padding">
-    <xsl:attribute name="padding-left">4pt</xsl:attribute>
-    <xsl:attribute name="padding-right">4pt</xsl:attribute>
+    <xsl:attribute name="margin">1pt</xsl:attribute>
+    <xsl:attribute name="padding-left">2pt</xsl:attribute>
+    <xsl:attribute name="padding-right">2pt</xsl:attribute>
     <xsl:attribute name="padding-top">2pt</xsl:attribute>
     <xsl:attribute name="padding-bottom">2pt</xsl:attribute>
   </xsl:attribute-set>
@@ -461,8 +398,8 @@
   <!--
   <xsl:param name="graphicsize.extension">1</xsl:param>
   -->
-  <xsl:param name="default.image.width">6.3in</xsl:param>
-  <xsl:param name="default.inline.image.height">1em</xsl:param>
+  <xsl:param name="default.image.width">370px</xsl:param>
+  <xsl:param name="default.inline.image.height">.8em</xsl:param>
 
   <xsl:template name="process.image">
     <!-- if image is wider than the page, shrink it down to default.image.width -->
@@ -549,6 +486,7 @@
               <xsl:with-param name="length" select="$default.image.width"/>
               <xsl:with-param name="default.units" select="'px'"/>
             </xsl:call-template>
+            <xsl:attribute name="border">1pt solid grey</xsl:attribute>
           </xsl:when>
           <xsl:otherwise>auto</xsl:otherwise>
         </xsl:choose>
@@ -672,12 +610,12 @@
     <xsl:attribute name="font-weight"><xsl:value-of select="$header.font-weight"/></xsl:attribute>
     <xsl:attribute name="color"><xsl:value-of select="$title.color"/></xsl:attribute>
     <!-- font size is calculated dynamically by section.heading template -->
-    <xsl:attribute name="keep-with-next.within-column">always</xsl:attribute>
-    <xsl:attribute name="space-before.minimum">0.8em</xsl:attribute>
-    <xsl:attribute name="space-before.optimum">1.0em</xsl:attribute>
+    <xsl:attribute name="keep-with-next.within-column">auto</xsl:attribute>
+    <xsl:attribute name="space-before.minimum">0.4em</xsl:attribute>
+    <xsl:attribute name="space-before.optimum">.8em</xsl:attribute>
     <xsl:attribute name="space-before.maximum">1.2em</xsl:attribute>
-    <xsl:attribute name="space-after.minimum">0.8em</xsl:attribute>
-    <xsl:attribute name="space-after.optimum">1.0em</xsl:attribute>
+    <xsl:attribute name="space-after.minimum">0.4em</xsl:attribute>
+    <xsl:attribute name="space-after.optimum">.8em</xsl:attribute>
     <xsl:attribute name="space-after.maximum">1.2em</xsl:attribute>
     <xsl:attribute name="text-align">left</xsl:attribute>
     <!-- make sure block it aligns with block title -->
@@ -815,24 +753,24 @@
   -->
 
   <xsl:param name="qandadiv.autolabel">0</xsl:param>
-  <xsl:param name="variablelist.as.blocks">1</xsl:param>
+  <xsl:param name="variablelist.as.blocks">0</xsl:param>
 
   <xsl:attribute-set name="list.block.properties">
     <xsl:attribute name="margin-left">0.4em</xsl:attribute>
   </xsl:attribute-set>
 
   <xsl:attribute-set name="list.block.spacing">
-    <xsl:attribute name="space-before.optimum">1.2em</xsl:attribute>
-    <xsl:attribute name="space-before.minimum">0.2em</xsl:attribute>
-    <xsl:attribute name="space-before.maximum">1.4em</xsl:attribute>
-    <xsl:attribute name="space-after.optimum">1.2em</xsl:attribute>
-    <xsl:attribute name="space-after.minimum">0.2em</xsl:attribute>
-    <xsl:attribute name="space-after.maximum">1.4em</xsl:attribute>
+    <xsl:attribute name="space-before.minimum">0em</xsl:attribute>
+    <xsl:attribute name="space-before.optimum">.2em</xsl:attribute>
+    <xsl:attribute name="space-before.maximum">.4em</xsl:attribute>
+    <xsl:attribute name="space-after.minimum">0em</xsl:attribute>
+    <xsl:attribute name="space-after.optimum">.2em</xsl:attribute>
+    <xsl:attribute name="space-after.maximum">.4em</xsl:attribute>
   </xsl:attribute-set>
 
   <xsl:attribute-set name="list.item.spacing">
-    <xsl:attribute name="space-before.optimum">0.5em</xsl:attribute>
     <xsl:attribute name="space-before.minimum">0.2em</xsl:attribute>
+    <xsl:attribute name="space-before.optimum">0.5em</xsl:attribute>
     <xsl:attribute name="space-before.maximum">0.8em</xsl:attribute>
   </xsl:attribute-set>
 
@@ -920,7 +858,15 @@
       <xsl:call-template name="division.title">
         <xsl:with-param name="node" select="ancestor-or-self::db:book[1] | ancestor-or-self::book[1]"/>
       </xsl:call-template>
-    </fo:block>
+      <fo:external-graphic>
+      <xsl:attribute name="src">
+        <xsl:call-template name="fo-external-image">
+          <xsl:with-param name="filename">"images/cover.png"</xsl:with-param>
+        </xsl:call-template>
+      </xsl:attribute>
+      <xsl:attribute name="width">auto</xsl:attribute>
+    </fo:external-graphic>
+      </fo:block>
   </xsl:template>
 
   <!-- add revision info on title page -->

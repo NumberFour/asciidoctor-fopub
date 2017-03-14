@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:fox="http://xmlgraphics.apache.org/fop/extensions">
 
-  <!-- Asciidoctor theme -->
+  <!-- N4 theme -->
   <xsl:param name="text.color">#222222</xsl:param>
   <xsl:param name="link.color">#527AA3</xsl:param>
   <xsl:param name="border.color">#DDDDDD</xsl:param>
@@ -51,9 +52,7 @@
   <!-- Disable watermark image to avoid long timeouts fetching from internet -->
   <xsl:param name="draft.watermark.image"/>
 
-  <!--
   <xsl:param name="use.extensions">1</xsl:param>
-  -->
 
   <!-- show URLs of links in footnotes -->
   <xsl:param name="ulink.show" select="0"/>
@@ -100,12 +99,8 @@
   <xsl:param name="navig.graphics.path">images/icons/</xsl:param>
   <xsl:param name="navig.showtitles">0</xsl:param>
 
-  <xsl:param name="shade.verbatim">0</xsl:param>
-
-  <xsl:attribute-set name="shade.verbatim.style">
-    <xsl:attribute name="border">0</xsl:attribute>
-    <xsl:attribute name="background-color">#E0E0E0</xsl:attribute>
-  </xsl:attribute-set>
+   <!-- shade.verbatim.style is added to listings when shade.verbatim is enabled -->
+  <xsl:param name="shade.verbatim">1</xsl:param>
 
   <!--
   <xsl:param name="linenumbering.extension">1</xsl:param>
@@ -127,7 +122,7 @@
   <xsl:param name="admon.textlabel">0</xsl:param>
 
   <xsl:param name="chunk.first.sections" select="0"/>
-  <xsl:param name="chunk.quietly" select="0"/>
+  <xsl:param name="chunk.quietly" select="1"/>
   <xsl:param name="chunk.section.depth" select="1"/>
   <xsl:param name="chunk.toc" select="''"/>
   <xsl:param name="chunk.tocs.and.lots" select="0"/>
@@ -141,7 +136,7 @@
   <xsl:param name="table.footnote.number.symbols" select="''"/>
   <xsl:param name="table.frame.border.color" select="'#527bbd'"/>
   <xsl:param name="table.frame.border.style" select="'solid'"/>
-  <xsl:param name="table.frame.border.thickness" select="'2px'"/>
+  <xsl:param name="table.frame.border.thickness" select="'1px'"/>
   <!-- disabled due to missing adjustColumnWidths function -->
   <xsl:param name="tablecolumns.extension">0</xsl:param>
 
