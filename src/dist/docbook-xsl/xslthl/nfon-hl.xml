@@ -30,6 +30,8 @@
 		<keyword>true</keyword>
 		<keyword>pkeys</keyword>
 		<keyword>false</keyword>
+		<keyword>items</keyword>
+		<keyword>@type</keyword>
 	</highlighter>
 	<highlighter type="word">
 		<word>{</word>
