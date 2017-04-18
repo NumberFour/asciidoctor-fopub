@@ -39,6 +39,8 @@ Several of the lesser used languages have been removed.
   <highlighter id="n4js" file="./xslthl/n4js-hl.xml" />
   <highlighter id="n4jsd" file="./xslthl/n4js-hl.xml" />
   <highlighter id="n4jsx" file="./xslthl/jsx-hl.xml" />
+  <highlighter id="n4mf" file="./xslthl/n4mf-hl.xml" />
+  <highlighter id="nfon" file="./xslthl/nfon-hl.xml" />
   <highlighter id="jsx" file="./xslthl/jsx-hl.xml" />
   <highlighter id="ebnf" file="./xslthl/ebnf-hl.xml" />
   <highlighter id="bnf" file="./xslthl/ebnf-hl.xml" />
