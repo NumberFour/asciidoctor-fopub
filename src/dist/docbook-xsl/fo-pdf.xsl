@@ -783,7 +783,7 @@
   
     <xsl:choose>
       <xsl:when test="$itemsymbol='none'"></xsl:when>
-      <xsl:when test="$itemsymbol='circle'">&#x25E6;</xsl:when>
+      <xsl:when test="$itemsymbol='circle'">&#x2022;</xsl:when>
       <xsl:when test="$itemsymbol='disc'">&#x2022;</xsl:when>
       <xsl:when test="$itemsymbol='square'">&#x25AA;</xsl:when>
       <xsl:when test="$itemsymbol='checked'">&#x25A0;</xsl:when>
