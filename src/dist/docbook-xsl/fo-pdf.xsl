@@ -784,8 +784,8 @@
       <xsl:when test="$itemsymbol='circle'">&#x2022;</xsl:when>
       <xsl:when test="$itemsymbol='disc'">&#x2022;</xsl:when>
       <xsl:when test="$itemsymbol='square'">&#x2022;</xsl:when>
-      <xsl:when test="$itemsymbol='checked'">&#x25A0;</xsl:when>
-      <xsl:when test="$itemsymbol='unchecked'">&#x25A1;</xsl:when>
+      <xsl:when test="$itemsymbol='checked'">&#x2022;</xsl:when>
+      <xsl:when test="$itemsymbol='unchecked'">&#x2022;</xsl:when>
       <xsl:otherwise>&#x2022;</xsl:otherwise>
     </xsl:choose>
   </xsl:template>
