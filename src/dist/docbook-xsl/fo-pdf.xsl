@@ -88,7 +88,6 @@
     <xsl:call-template name="pickfont-mono"/>
   </xsl:param>
 
-  <!--
   <xsl:param name="dingbat.font.family">
     <xsl:call-template name="pickfont-dingbat"/>
   </xsl:param>
@@ -96,7 +95,6 @@
   <xsl:param name="symbol.font.family">
     <xsl:call-template name="pickfont-symbol"/>
   </xsl:param>
-  -->
 
   <xsl:param name="math.font.family">
     <xsl:call-template name="pickfont-math"/>
@@ -785,7 +783,7 @@
       <xsl:when test="$itemsymbol='none'"></xsl:when>
       <xsl:when test="$itemsymbol='circle'">&#x2022;</xsl:when>
       <xsl:when test="$itemsymbol='disc'">&#x2022;</xsl:when>
-      <xsl:when test="$itemsymbol='square'">&#x25AA;</xsl:when>
+      <xsl:when test="$itemsymbol='square'">&#x2022;</xsl:when>
       <xsl:when test="$itemsymbol='checked'">&#x25A0;</xsl:when>
       <xsl:when test="$itemsymbol='unchecked'">&#x25A1;</xsl:when>
       <xsl:otherwise>&#x2022;</xsl:otherwise>
