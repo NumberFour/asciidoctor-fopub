@@ -12,7 +12,7 @@ DocBook-to-PDF conversion using free software made easy! (based on DocBook XSL a
 Using the asciidoctor-fopub project, you can convert any DocBook file into a nicely formatted PDF with nothing more than a Java runtime (JVM) and development kit (JDK).
 All the open source software required to perform the conversion is automatically fetched from the internet the first time you run it.
 
-[NOTE,caption=Scope]
+[NOTE]
 fopub is a replacement for `a2x` command from AsciiDoc Python.
 a2x is a standalone frontend to the DocBook toolchain.
 fopub (like a2x) is meant to be used when you don't have a Gradle (or Maven) build.
@@ -220,7 +220,7 @@ For example if you want to use Colony style::
 . Then you specify this directory when you launch the output generation :
 
  $ /path/to/fopub/fopub -t /path/to/custom/fopub/docbook-xsl sample.xml
- 
+
 === fopub option flags
 
 -t <path>::
