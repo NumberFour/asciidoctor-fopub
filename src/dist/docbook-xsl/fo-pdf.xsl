@@ -600,6 +600,16 @@
   </xsl:template>
 
   <!--
+    Todo Block
+  -->
+
+
+  <xsl:template match="db:todo">
+    <xsl:call-template name="graphical.admonition">
+    </xsl:call-template>
+  </xsl:template>
+
+  <!--
     Titles
   -->
 
