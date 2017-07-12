@@ -610,6 +610,41 @@
   </xsl:template>
 
   <!--
+    Definition
+  -->
+
+  <xsl:template match="db:definition">
+    <fo:block xsl:use-attribute-sets="example.properties">
+      <xsl:apply-templates/>
+    </fo:block>
+  </xsl:template>
+
+  <xsl:template match="db:definition/db:title">
+    <fo:block xsl:use-attribute-sets="section.title.level5.properties">
+      <xsl:attribute name="padding-top">2pt</xsl:attribute>
+      <xsl:apply-templates/>
+    </fo:block>
+  </xsl:template>
+
+  <!--
+    Requirement
+  -->
+
+  <xsl:template match="db:requirement">
+    <fo:block xsl:use-attribute-sets="example.properties">
+      <xsl:apply-templates/>
+    </fo:block>
+  </xsl:template>
+  
+  <xsl:template match="db:requirement/db:title">
+    <fo:block xsl:use-attribute-sets="section.title.level5.properties">
+      <xsl:attribute name="padding-top">2pt</xsl:attribute>
+      <xsl:apply-templates/>
+    </fo:block>
+  </xsl:template>
+
+
+  <!--
     Titles
   -->
 
